@@ -772,5 +772,81 @@
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
   </script>
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SambatAI PRO - Ruang Santai & Ambis</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  
+
+  <style>
+
+    body { background-color: #FDFBF7; }
+
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <!-- UI Anda Tetap Ada (Desain Estetik) -->
+
+  <div class="h-screen flex items-center justify-center p-6 text-center">
+
+    <div class="max-w-md space-y-4">
+
+      <div class="w-20 h-20 bg-emerald-500 rounded-3xl mx-auto flex items-center justify-center shadow-lg">
+
+        <span class="text-4xl">🌅</span>
+
+      </div>
+
+      <h1 class="text-3xl font-black text-slate-800">SambatAI PRO</h1>
+
+      <p class="text-slate-600">Selamat datang di SambatAI. Klik ikon chat di pojok kanan bawah untuk mulai mengobrol!</p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- KODE CHATBASE ANDA (Sudah Terpasang) -->
+  <script>
+    (function(){
+      if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+        window.chatbase=(...arguments)=>{
+          if(!window.chatbase.q){window.chatbase.q=[]}
+          window.chatbase.q.push(arguments)
+        };
+        window.chatbase=new Proxy(window.chatbase,{
+          get(target,prop){
+            if(prop==="q"){return target.q}
+            return(...args)=>target(prop,...args)
+          }
+        })
+      }
+      const onLoad=function(){
+        const script=document.createElement("script");
+        script.src="https://www.chatbase.co/embed.min.js";
+        script.id="O4whSa6m6vNjqGLWXEVBm";
+        script.domain="www.chatbase.co";
+        document.body.appendChild(script)
+      };
+      if(document.readyState==="complete"){onLoad()}
+      else{window.addEventListener("load",onLoad)}
+    })();
+  </script>
 </body>
 </html>
